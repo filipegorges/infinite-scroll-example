@@ -6,37 +6,48 @@ A simple example scaffold with AJAX infinite scroll on will_paginate.
 To check this example, just run these commands on your terminal:
 
 1- bundle
+
 2- rake db:setup
+
 3- rails server
 
 
 Step-by-step example development
 
 01- run: rails new InfiniteScrolling
+
 02- cd InfiniteScrolling
+
 03- add to your Gemfile: gem 'will_paginate'
+
 04- run: bundle install
+
 05- run: rails g scaffold Counter iteration
+
 06- run: rake db:migrate
+
 07- run: rails console
+
 08- run: 100.times {|i| Counter.create(iteration: i)}
+
 09- run: quit
+
 10- on the counters.coffee file on your app/assets/javascripts folder, paste the following:
 
-  jQuery ->
-    if $('.pagination').length
-      $(window).scroll ->
-        url = $('.pagination .next_page').attr('href')
-        if url && $(window).scrollTop() > $(document).height() - $(window).height() - 50
-          $('.pagination').text("Fetching more records...")
-          $.getScript(url)
-      $(window).scroll()
+    jQuery ->
+      if $('.pagination').length
+        $(window).scroll ->
+          url = $('.pagination .next_page').attr('href')
+          if url && $(window).scrollTop() > $(document).height() - $(window).height() - 50
+            $('.pagination').text("Fetching more records...")
+            $.getScript(url)
+        $(window).scroll()
 
 11- on your app/controllers/counters_controller.rb, under the index action, enable pagination:
 
-  def index
-    @counters = Counter.page(params[:page]).per_page(33)
-  end
+    def index
+      @counters = Counter.page(params[:page]).per_page(33)
+    end
 
 12- on your app/views/counters folder, create the javascript response to the index action (index.js.erb), with the following content:
 
