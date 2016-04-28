@@ -1,6 +1,6 @@
-based on - https://www.youtube.com/watch?v=PQX2fgB6y10
+based on - Railscasts PRO #114 Endless Page (revised) - https://www.youtube.com/watch?v=PQX2fgB6y10
 
-# infinite-sroll-example
+# infinite-scroll-example
 A simple example scaffold with AJAX infinite scroll on will_paginate.
 
 To check this example, just run these commands on your terminal:
