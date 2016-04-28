@@ -12,7 +12,7 @@ To check this example, just run these commands on your terminal:
 3- rails server
 
 
-Step-by-step example development
+#Step-by-step example development
 
 01- run: rails new InfiniteScrolling
 
