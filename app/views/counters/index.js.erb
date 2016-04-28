@@ -1,0 +1,7 @@
+$('#counters').append('<%= j render(@counters)%>');
+<% if @counters.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate(@counters) %>');
+<% else %>
+  $('.pagination').remove();
+<% end %>
+<% sleep 1 %>

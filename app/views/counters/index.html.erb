@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Counter</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Iteration</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody id="counters">
+    <%= render @counters %>
+  </tbody>
+</table>
+
+<%= will_paginate @counters %>
+
+<%= link_to 'New', new_counter_path %>
